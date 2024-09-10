@@ -1,6 +1,6 @@
 'use server';
 
-import { CoreMessage, CoreUserMessage, streamText } from 'ai';
+import { CoreMessage, streamText } from 'ai';
 import { createStreamableValue } from 'ai/rsc';
 import { ollama } from 'ollama-ai-provider';
 
@@ -9,12 +9,12 @@ export async function continueConversation(
   messages: CoreMessage[]
 ) {
   // Dynamically load a model some day
-  const model = ollama('phi3:mini')
+  const model = ollama('taozhiyuai/llama-3-8b-ultra-instruct:q2_k')
 
   const result = await streamText({
     model,
     messages,
-    system: `You are a helpful assistant that desires to answer any question accurately within a paragraph. Your name is Phi.`,
+    system: `You are a helpful assistant. Your name is Zero.`,
     onFinish: async (ev) => {
       // Persist chat message logic
     }

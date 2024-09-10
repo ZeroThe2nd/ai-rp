@@ -1,4 +1,4 @@
-import { ISection, Section, getSection } from "@/components/library/Section";
+import { ISection, Section, getCachedSection } from "@/components/library/Section";
 
 const getSections = async (): Promise<ISection[]> => {
     const sections = []
@@ -9,7 +9,7 @@ const getSections = async (): Promise<ISection[]> => {
     ]
 
     for await (let type of types) {
-        sections.push(await getSection(type))
+        sections.push(await getCachedSection(type))
     }
 
     return sections

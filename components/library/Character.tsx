@@ -46,8 +46,10 @@ export function CharacterLoading() {
 export async function Character({flake}: { flake: string }) {
     const character = await getCharacter(flake)
 
-    return <article className="m-2 p-2 rounded border border-white">
-        <h1>{character.name}</h1>
-        <small>{character.flake}</small>
-    </article>
+    return <a href={`/library/${character.slug}`}>
+        <article className="m-2 p-2 rounded border border-white">
+            <h1>{character.name}</h1>
+            <small>{character.flake}</small>
+        </article>
+    </a>
 }
